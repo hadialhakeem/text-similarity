@@ -35,7 +35,6 @@ module_url = "https://tfhub.dev/google/universal-sentence-encoder/1?tf-hub-forma
 
 # Import the Universal Sentence Encoder's TF Hub module
 embed = hub.load(module_url)
-embed.signatures['default'](['my text', 'batch'])
 
 # sample text
 messages = [
@@ -53,7 +52,7 @@ messages = [
 ]
 
 similarity_input_placeholder = tf.placeholder(tf.string, shape=(None))
-similarity_message_encodings = embed(similarity_input_placeholder)
+similarity_message_encodings = embed.signatures['default'](similarity_input_placeholder)
 with tf.Session() as session:
     session.run(tf.global_variables_initializer())
     session.run(tf.tables_initializer())
