@@ -30,6 +30,7 @@ def plot_similarity(labels, features, rotation):
 
 def run_and_plot(messages_):
     message_embeddings_ = embed(messages_)
+    print(type(message_embeddings_))
     plot_similarity(messages_, message_embeddings_, 90)
 
 
@@ -56,23 +57,24 @@ for i, message_embedding in enumerate(np.array(message_embeddings).tolist()):
     print("Embedding: [{}, ...]\n".format(message_embedding_snippet))
 '''
 
-messages = [
-    # Smartphones
-    "I like my phone",
-    "My phone is not good.",
-    "Your cellphone looks great.",
+if __name__ == "__main__":
+    messages = [
+        # Smartphones
+        "I like my phone",
+        "My phone is not good.",
+        "Your cellphone looks great.",
 
-    # Weather
-    "Global warming is real",
+        # Weather
+        "Global warming is real",
 
-    # Food and health
-    "Eating strawberries is healthy",
-    "Is paleo better than keto?",
+        # Food and health
+        "Eating strawberries is healthy",
+        "Is paleo better than keto?",
 
-    # Asking about age
-    "How old are you?",
-    "what is your age?",
-]
+        # Asking about age
+        "How old are you?",
+        "what is your age?",
+    ]
 
-print("plotting...")
-run_and_plot(messages)
+    print("plotting...")
+    run_and_plot(messages)
