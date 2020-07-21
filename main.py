@@ -1,18 +1,12 @@
 from absl import logging
 
-import tensorflow as tf
-
 import tensorflow_hub as hub
 import matplotlib.pyplot as plt
 import numpy as np
-import os
-import pandas as pd
-import re
 import seaborn as sns
 
-module_url = "https://tfhub.dev/google/universal-sentence-encoder/4"  # @param ["https://tfhub.dev/google/universal-sentence-encoder/4", "https://tfhub.dev/google/universal-sentence-encoder-large/5"]
+module_url = "https://tfhub.dev/google/universal-sentence-encoder/4"
 model = hub.load(module_url)
-print("module %s loaded" % module_url)
 
 
 def embed(input):
@@ -39,6 +33,7 @@ def run_and_plot(messages_):
     plot_similarity(messages_, message_embeddings_, 90)
 
 
+'''
 # @title Compute a representation for each message, showing various lengths supported.
 word = "Elephant"
 sentence = "I am a sentence for which I would like to get its embedding."
@@ -59,6 +54,7 @@ for i, message_embedding in enumerate(np.array(message_embeddings).tolist()):
     message_embedding_snippet = ", ".join(
         (str(x) for x in message_embedding[:3]))
     print("Embedding: [{}, ...]\n".format(message_embedding_snippet))
+'''
 
 messages = [
     # Smartphones
