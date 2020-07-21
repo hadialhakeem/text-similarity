@@ -63,12 +63,9 @@ messages = [
     "Your cellphone looks great.",
 
     # Weather
-    "Will it snow tomorrow?",
-    "Recently a lot of hurricanes have hit the US",
     "Global warming is real",
 
     # Food and health
-    "An apple a day, keeps the doctors away",
     "Eating strawberries is healthy",
     "Is paleo better than keto?",
 
