@@ -1,15 +1,22 @@
+from absl import logging
+
 import tensorflow as tf
+
 import tensorflow_hub as hub
 import matplotlib.pyplot as plt
 import numpy as np
-import seaborn as sns
 import os
-import re
 import pandas as pd
+import re
+import seaborn as sns
 
-from absl import logging
+module_url = "https://tfhub.dev/google/universal-sentence-encoder/4"  # @param ["https://tfhub.dev/google/universal-sentence-encoder/4", "https://tfhub.dev/google/universal-sentence-encoder-large/5"]
+model = hub.load(module_url)
+print("module %s loaded" % module_url)
 
-embed = hub.load("https://tfhub.dev/google/universal-sentence-encoder/4")
+
+def embed(input):
+    return model(input)
 
 
 def plot_similarity(labels, features, rotation):
@@ -24,12 +31,34 @@ def plot_similarity(labels, features, rotation):
         cmap="YlOrRd")
     g.set_xticklabels(labels, rotation=rotation)
     g.set_title("Semantic Textual Similarity")
+    plt.show()
 
 
 def run_and_plot(messages_):
     message_embeddings_ = embed(messages_)
     plot_similarity(messages_, message_embeddings_, 90)
 
+
+# @title Compute a representation for each message, showing various lengths supported.
+word = "Elephant"
+sentence = "I am a sentence for which I would like to get its embedding."
+paragraph = (
+    "Universal Sentence Encoder embeddings also support short paragraphs. "
+    "There is no hard limit on how long the paragraph is. Roughly, the longer "
+    "the more 'diluted' the embedding will be.")
+messages = [word, sentence, paragraph]
+
+# Reduce logging output.
+logging.set_verbosity(logging.ERROR)
+
+message_embeddings = embed(messages)
+
+for i, message_embedding in enumerate(np.array(message_embeddings).tolist()):
+    print("Message: {}".format(messages[i]))
+    print("Embedding size: {}".format(len(message_embedding)))
+    message_embedding_snippet = ", ".join(
+        (str(x) for x in message_embedding[:3]))
+    print("Embedding: [{}, ...]\n".format(message_embedding_snippet))
 
 messages = [
     # Smartphones
@@ -52,4 +81,5 @@ messages = [
     "what is your age?",
 ]
 
+print("plotting...")
 run_and_plot(messages)
