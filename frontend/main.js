@@ -15,7 +15,8 @@ addTextButton.addEventListener('click', function(event){
 
     // 3. Fill it with the content
         div.innerHTML = "<label>" + 'String ' + textFieldNum.toString() + "</label>" +
-            "<textarea class='form-control' rows='4'></textarea>";
+            "<textarea class='form-control' rows='4'></textarea>" +
+            "<button type='button' class='btn btn-danger mt-1'> Remove </button>";
 
     textField.append(div)
 
