@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS, cross_origin
 #from backend.compute_similarity import embed
 app = Flask(__name__)
+app = CORS(app)
 
 
 @app.route("/")
