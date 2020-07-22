@@ -8,27 +8,55 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Text Similarity!</title>
   </head>
   <body>
     <div class="row mt-3">
         <div class="col">
-            <h1 align="center">Universal Sentence Encoder</h1>
+            <h1 align="center">Compute Text Similarity</h1>
         </div>
     </div>
 
     <div class="row mt-3">
-        <div class="col-1">
+        <div class="col-2">
         </div>
-        <div class="col-5">
+        <div class="col-4">
             <h2>What is this?</h2>
             <p>This website utilizes the <strong>Universal Sentence Encoder</strong> to calculate how similar a bunch of strings are to each other. What's cool about this sentence encoder, is that it computes <i>semantic</i> similarity, meaning how close pieces of text are to each other in their meaning, and not in the words they share.</p>
         </div>
-        <div class="col-5">
+        <div class="col-4">
             <h2>How does it work?</h2>
             <p>Type or paste any paragraphs or sentences you'd like into the 2 fields. If you would like to compute the similarity between more strings, you can do that as well. Upon computation, a heatmap will be generated showing how each text is similar to every other text. Try it out and have fun!</p>
         </div>
     </div>
+
+    <div class="row mt-5">
+        <div class="col-2">
+        </div>
+
+        <div class="col-8">
+            <form>
+              <div class="form-group">
+                <label>String 1</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+              </div>
+
+              <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" >Check me out</label>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
