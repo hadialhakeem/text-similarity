@@ -3,12 +3,6 @@ let heatmapButton = document.getElementById("generateHeatmap")
 
 let textFieldNum = 2;
 
-const textDiv = "<div class='form-group'>" +
-                        "<label>String</label>" +
-                          "<textarea class='form-control' rows='4'></textarea>"+
-                      "</div>"
-
-
 addTextButton.addEventListener('click', function(event){
     textFieldNum += 1;
     console.log("added")
@@ -17,17 +11,22 @@ addTextButton.addEventListener('click', function(event){
     let div = document.createElement('div');
     let textField = document.getElementById("textField");
 
+    div.className = 'form-group';
+
     // 3. Fill it with the content
-        div.innerHTML = textDiv;
+        div.innerHTML = "<label>" + 'String ' + textFieldNum.toString() + "</label>" +
+            "<textarea class='form-control' rows='4'></textarea>";
 
     textField.append(div)
 
 })
 
-heatmapButton.addEventListener('click', function(event){
+heatmapButton.addEventListener('submit', function(event){
    event.preventDefault()
+    const apiUrl = 'http://127.0.0.1:5000/compute'
+
     console.log("generating...")
-    fetch('http://127.0.0.1:5000/compute/', {
+    fetch(apiUrl, {
         method: 'POST',
         body: JSON.stringify({'string 1': 'text 1'})
     })
