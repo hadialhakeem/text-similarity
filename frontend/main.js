@@ -1,5 +1,6 @@
 let addTextButton = document.getElementById("addtextfield")
 let heatmapButton = document.getElementById("generateHeatmap")
+let removeButton = document.getElementsByClassName('remove')
 
 let textFieldNum = 2;
 
@@ -11,10 +12,11 @@ addTextButton.addEventListener('click', function(event){
     let div = document.createElement('div');
     let textField = document.getElementById("textField");
 
+    // 2. Declare class
     div.className = 'form-group';
 
     // 3. Fill it with the content
-        div.innerHTML = "<label>" + 'String ' + textFieldNum.toString() + "</label>" +
+    div.innerHTML = "<label>" + 'String ' + textFieldNum.toString() + "</label>" +
             "<textarea class='form-control' rows='4'></textarea>" +
             "<button type='button' class='btn btn-danger mt-1'> Remove </button>";
 
@@ -33,4 +35,8 @@ heatmapButton.addEventListener('submit', function(event){
     })
         .then(results => results.json())
         .then(console.log)
+})
+
+removeButton.addEventListener('click', function(event){
+
 })
