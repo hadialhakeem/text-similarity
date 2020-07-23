@@ -14,7 +14,8 @@ def helloWorld():
 
 @app.route("/compute", methods=['POST'])
 def compute_similarity():
-    data = request.get_json(force=True)
+    data = request.form.get('String 1')
+    print(data)
     print(type(data))
     # response = embed(data)
     return jsonify(data)

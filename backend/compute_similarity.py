@@ -25,6 +25,8 @@ def plot_similarity(labels, features, rotation):
         cmap="YlOrRd")
     g.set_xticklabels(labels, rotation=rotation)
     g.set_title("Semantic Textual Similarity")
+    plt.tight_layout()
+    plt.savefig('plot.png')
     plt.show()
 
 
