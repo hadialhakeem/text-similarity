@@ -30,10 +30,11 @@ def plot_similarity(labels, features, rotation):
     plt.show()
 
 
-def run_and_plot(messages_):
-    message_embeddings_ = embed(messages_)
-    print(type(message_embeddings_))
-    plot_similarity(messages_, message_embeddings_, 90)
+def run_and_plot(messages_dict):
+    keys = list(messages_dict.keys())
+    values = list(messages_dict.values())
+    message_embeddings_ = embed(values)
+    plot_similarity(keys, message_embeddings_, 90)
 
 
 '''
@@ -78,5 +79,12 @@ if __name__ == "__main__":
         "what is your age?",
     ]
 
+    dict_messages = {
+        'String 1': "I like my phone",
+        'String 2': "Your cellphone looks great.",
+        'String 3': "How old are you?",
+        'String 4': "water"
+    }
+
     print("plotting...")
-    run_and_plot(messages)
+    run_and_plot(dict_messages)
