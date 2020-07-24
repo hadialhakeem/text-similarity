@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from werkzeug.datastructures import ImmutableMultiDict
 from flask_cors import CORS
 
 # from backend.compute_similarity import embed
@@ -14,8 +15,9 @@ def helloWorld():
 
 @app.route("/compute", methods=['POST'])
 def compute_similarity():
-    data = request.form.get('String 1')
+    data = request.form.to_dict()
     print(data)
+    print(data['String 1'])
     print(type(data))
     # response = embed(data)
     return jsonify(data)
