@@ -49,7 +49,7 @@ function createTextField(){
         "<textarea class='form-control' rows='4' name='String "+ textFieldNum.toString() + "' id='id-" + textFieldNum.toString() + "'></textarea>"
 
     if (textFieldNum > 2){
-        div.innerHTML += "<button type='button' class='btn btn-danger mt-1' id='"+textFieldNum+"' onclick='removeDiv(id)'> Remove </button>";
+        div.innerHTML += "<button type='button' class='btn btn-danger mt-1' id='"+textFieldNum.toString()+"' onclick='removeDiv(id)'> Remove </button>";
     }
 
 
