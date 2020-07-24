@@ -1,7 +1,7 @@
 let addTextButton = document.getElementById("addtextfield");
 let textForm = document.getElementById('textForm');
 
-let textFieldNum = 2;
+let textFieldNum = 0;
 
 
 textForm.addEventListener('submit', function(e){
@@ -44,9 +44,14 @@ function createTextField(){
     div.id = textFieldNum.toString()
 
     // 3. Fill it with the content
-    div.innerHTML = "<label><h5>" + 'String ' + textFieldNum.toString() + "</h5></label>" +
-        "<textarea class='form-control' rows='4'></textarea>" +//script here
-        "<button type='button' class='btn btn-danger mt-1' onclick='removeDiv(document.getElementById(textFieldNum).id)'> Remove </button>";
+    //"<img src='MatrixLogos/"+add[3]+"' width='100' height='25'/>";
+    div.innerHTML = "<label for='id-" + textFieldNum.toString() + "'><h5>" + 'String ' + textFieldNum.toString() + "</h5></label>" +
+        "<textarea class='form-control' rows='4' name='String "+ textFieldNum.toString() + "' id='id-" + textFieldNum.toString() + "'></textarea>"
+
+    if (textFieldNum > 2){
+        div.innerHTML += "<button type='button' class='btn btn-danger mt-1' id='"+textFieldNum+"' onclick='removeDiv(id)'> Remove </button>";
+    }
+
 
     textField.append(div)
 }
@@ -55,3 +60,6 @@ function removeDiv(num) {
     let div = document.getElementById(num);
     div.remove();
 }
+
+createTextField()
+createTextField()
