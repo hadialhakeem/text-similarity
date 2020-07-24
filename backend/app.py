@@ -1,5 +1,4 @@
 from flask import Flask, request, jsonify
-from werkzeug.datastructures import ImmutableMultiDict
 from flask_cors import CORS
 
 # from backend.compute_similarity import embed
