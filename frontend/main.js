@@ -64,6 +64,9 @@ function removeDiv(num) {
 function appendImg(divID, img_src) {
     let div = document.getElementById(divID)
     let new_image = document.createElement('img')
+    new_image.src = img_src
+
+    div.append(new_image)
 }
 
 createTextField()
