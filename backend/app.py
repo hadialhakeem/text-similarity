@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-
+from backend.helpers import getbytearray
 from backend.compute_similarity import run_and_plot
 
 app = Flask(__name__)
@@ -18,9 +18,9 @@ def compute_similarity():
     print(data)
     print(type(data))
     run_and_plot(data)
-    image = open('plot.png', 'rb').read()
-    response = requests.post(URL, data=img, headers=headers)
-    return response
+    image_as_bytes = getbytearray(r"C:\Users\hadin\Desktop\text-similarity\backend\plot.png")
+    response = {'image': image_as_bytes}
+    return jsonify(response)
 
 
 if __name__ == "__main__":

@@ -61,5 +61,10 @@ function removeDiv(num) {
     div.remove();
 }
 
+function appendImg(divID, img_src) {
+    let div = document.getElementById(divID)
+    let new_image = document.createElement('img')
+}
+
 createTextField()
 createTextField()
