@@ -86,5 +86,14 @@ if __name__ == "__main__":
         'String 4': "water"
     }
 
+    dict_messages_2 = {
+        'String 1': "a",
+        'String 2': "b",
+        'String 3': "c",
+        'String 4': "d"
+    }
+
     print("plotting...")
     run_and_plot(dict_messages)
+    #run_and_plot(dict_messages_2)
+

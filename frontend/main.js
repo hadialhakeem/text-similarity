@@ -20,10 +20,10 @@ textForm.addEventListener('submit', function(e){
             return response.text();
         })
         .then(function (text) {
-            console.log(text);
-            const imageBytes = text['image'];
-            const imgDiv = document.getElementById('heatmap_image');
-            const imgSrc = "data:image/png;base64," + imageBytes;
+            let JsonResult = JSON.parse(text);
+            let imageBytes = JsonResult.image.join('');
+            let imgDiv = 'heatmap_image';
+            let imgSrc = "data:image/png;base64," + btoa(imageBytes);
             appendImg(imgDiv, imgSrc)
         })
 })
@@ -66,11 +66,11 @@ function removeDiv(num) {
 }
 
 function appendImg(divID, img_src) {
-    let div = document.getElementById(divID)
-    let new_image = document.createElement('img')
-    new_image.src = img_src
+    let div = document.getElementById(divID);
+    let new_image = document.createElement('img');
+    new_image.src = img_src;
 
-    div.append(new_image)
+    div.append(new_image);
 }
 
 createTextField()
