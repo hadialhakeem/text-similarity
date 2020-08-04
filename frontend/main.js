@@ -20,12 +20,16 @@ textForm.addEventListener('submit', function(e){
             return response.text();
         })
         .then(function (text) {
-            console.log(text)
+            console.log(text);
+            const imageBytes = text['image'];
+            const imgDiv = document.getElementById('heatmap_image');
+            const imgSrc = "data:image/png;base64," + imageBytes;
+            appendImg(imgDiv, imgSrc)
         })
 })
 
 
-addTextButton.addEventListener('click', function(event){
+addTextButton.addEventListener('click', function(){
     createTextField();
 })
 
