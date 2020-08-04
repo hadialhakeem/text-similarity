@@ -95,5 +95,3 @@ if __name__ == "__main__":
 
     print("plotting...")
     run_and_plot(dict_messages)
-    #run_and_plot(dict_messages_2)
-
