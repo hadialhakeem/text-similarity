@@ -1,11 +1,16 @@
 let addTextButton = document.getElementById("addtextfield");
 let textForm = document.getElementById('textForm');
+let submitButton = document.getElementById('generateHeatmap');
 
 let textFieldNum = 0;
 
 
 textForm.addEventListener('submit', function(e){
     e.preventDefault();
+
+
+    submitButton.setAttribute('disabled', 'disabled');
+
     console.log("submit");
 
     const formData = new FormData(this);
@@ -20,10 +25,11 @@ textForm.addEventListener('submit', function(e){
             return response.text();
         })
         .then(function (text) {
+            submitButton.removeAttribute('disabled');
             let JsonResult = JSON.parse(text);
             let imgSrc = JsonResult['img_src'];
             let imgDiv = 'heatmap_image';
-            appendImg(imgDiv, imgSrc)
+            updateImg(imgDiv, imgSrc);
         })
 })
 
@@ -64,13 +70,14 @@ function removeDiv(num) {
     div.remove();
 }
 
-function appendImg(divID, img_src) {
+function updateImg(divID, img_src) {
     let div = document.getElementById(divID);
     let new_image = document.createElement('img');
+    div.align = 'center';
     new_image.src = img_src;
 
     div.append(new_image);
 }
 
-createTextField()
-createTextField()
+createTextField();
+createTextField();
