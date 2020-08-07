@@ -21,9 +21,8 @@ textForm.addEventListener('submit', function(e){
         })
         .then(function (text) {
             let JsonResult = JSON.parse(text);
-            let imageBytes = JsonResult.image.join('');
+            let imgSrc = JsonResult['img_src'];
             let imgDiv = 'heatmap_image';
-            let imgSrc = "data:image/png;base64," + btoa(imageBytes);
             appendImg(imgDiv, imgSrc)
         })
 })
