@@ -10,6 +10,8 @@ textForm.addEventListener('submit', function(e){
 
 
     submitButton.setAttribute('disabled', 'disabled');
+    submitButton.innerHTML = "<span class=\"spinner-border spinner-border-sm\" role=\"status\" style=\"width: 1.5rem; height: 1.5rem;\" aria-hidden=\"true\"></span>\n" +
+                             "Generating...";
 
     console.log("submit");
 
@@ -25,6 +27,7 @@ textForm.addEventListener('submit', function(e){
             return response.text();
         })
         .then(function (text) {
+            submitButton.innerHTML = "Generate Heatmap!";
             submitButton.removeAttribute('disabled');
             let JsonResult = JSON.parse(text);
             let imgSrc = JsonResult['img_src'];
