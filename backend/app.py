@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-
-# from backend.compute_similarity import embed
+from backend.compute_similarity import run_and_plot
 
 app = Flask(__name__)
 CORS(app)
@@ -16,10 +15,10 @@ def helloWorld():
 def compute_similarity():
     data = request.form.to_dict()
     print(data)
-    print(data['String 1'])
     print(type(data))
-    # response = embed(data)
-    return jsonify(data)
+    run_and_plot(data)
+    response = {'img_src': 'backend/plot.png'}
+    return jsonify(response)
 
 
 if __name__ == "__main__":

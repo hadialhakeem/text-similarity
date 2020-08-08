@@ -27,7 +27,7 @@ def plot_similarity(labels, features, rotation):
     g.set_title("Semantic Textual Similarity")
     plt.tight_layout()
     plt.savefig('plot.png')
-    plt.show()
+    # plt.show()
 
 
 def run_and_plot(messages_dict):
@@ -84,6 +84,13 @@ if __name__ == "__main__":
         'String 2': "Your cellphone looks great.",
         'String 3': "How old are you?",
         'String 4': "water"
+    }
+
+    dict_messages_2 = {
+        'String 1': "a",
+        'String 2': "b",
+        'String 3': "c",
+        'String 4': "d"
     }
 
     print("plotting...")
