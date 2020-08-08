@@ -75,8 +75,9 @@ function removeDiv(num) {
 
 function updateImg(divID, img_src) {
     let div = document.getElementById(divID);
+    div.innerHTML = "" // Clear old image
+
     let new_image = document.createElement('img');
-    div.align = 'center';
     new_image.src = img_src;
 
     div.append(new_image);
