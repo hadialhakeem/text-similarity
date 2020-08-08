@@ -28,6 +28,7 @@ def plot_similarity(labels, features, rotation):
     plt.tight_layout()
     plt.savefig('plot.png')
     # plt.show()
+    plt.close()
 
 
 def run_and_plot(messages_dict):
