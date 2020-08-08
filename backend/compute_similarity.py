@@ -1,5 +1,3 @@
-from absl import logging
-
 import tensorflow_hub as hub
 import matplotlib.pyplot as plt
 import numpy as np
@@ -8,12 +6,22 @@ import seaborn as sns
 module_url = "https://tfhub.dev/google/universal-sentence-encoder/4"
 model = hub.load(module_url)
 
+counter = 0
+
+
+def get_name():
+    global counter
+    return 'plot' + str(counter) + '.png'
+
 
 def embed(input):
     return model(input)
 
 
 def plot_similarity(labels, features, rotation):
+    global counter
+    counter += 1
+
     corr = np.inner(features, features)
     sns.set(font_scale=1.2)
     g = sns.heatmap(
@@ -26,7 +34,7 @@ def plot_similarity(labels, features, rotation):
     g.set_xticklabels(labels, rotation=rotation)
     g.set_title("Semantic Textual Similarity")
     plt.tight_layout()
-    plt.savefig('plot.png')
+    plt.savefig(get_name())
     # plt.show()
     plt.close()
 
