@@ -16,9 +16,8 @@ def compute_similarity():
     data = request.form.to_dict()
     print(data)
     print(type(data))
-    run_and_plot(data)
-    img_src = 'backend/plot.png'
-    response = {'img_src': img_src}
+    img_data = run_and_plot(data)
+    response = {'img': img_data}
     return jsonify(response)
 
 

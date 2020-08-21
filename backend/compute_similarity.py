@@ -2,6 +2,9 @@ import tensorflow_hub as hub
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
+import base64
+from io import BytesIO
+
 
 module_url = "https://tfhub.dev/google/universal-sentence-encoder/4"
 model = hub.load(module_url)
@@ -24,16 +27,22 @@ def plot_similarity(labels, features, rotation):
     g.set_xticklabels(labels, rotation=rotation)
     g.set_title("Semantic Textual Similarity")
     plt.tight_layout()
-    plt.savefig('plot.png')
+
+    tmpfile = BytesIO()
+    plt.savefig(tmpfile, format='png')
+    encoded = base64.b64encode(tmpfile.getvalue()).decode('utf-8')
+    html = '<img src=\'data:image/png;base64,{}\'>'.format(encoded)
     # plt.show()
     plt.close()
+
+    return html
 
 
 def run_and_plot(messages_dict):
     keys = list(messages_dict.keys())
     values = list(messages_dict.values())
     message_embeddings_ = embed(values)
-    plot_similarity(keys, message_embeddings_, 90)
+    return plot_similarity(keys, message_embeddings_, 90)
 
 
 '''
