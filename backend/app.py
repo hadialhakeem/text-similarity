@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from backend.compute_similarity import run_and_plot, get_name
+from backend.compute_similarity import run_and_plot
 
 app = Flask(__name__)
 CORS(app)
@@ -17,7 +17,7 @@ def compute_similarity():
     print(data)
     print(type(data))
     run_and_plot(data)
-    img_src = 'backend/' + get_name()
+    img_src = 'backend/plot.png'
     response = {'img_src': img_src}
     return jsonify(response)
 
