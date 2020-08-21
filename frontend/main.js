@@ -75,7 +75,7 @@ function removeDiv(num) {
 
 function updateImg(divID, img) {
     let div = document.getElementById(divID);
-    div.innerHTML = img; // Clear old image
+    div.innerHTML = img;
 }
 
 createTextField();
