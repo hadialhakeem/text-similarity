@@ -31,11 +31,13 @@ def plot_similarity(labels, features, rotation):
     tmpfile = BytesIO()
     plt.savefig(tmpfile, format='png')
     encoded = base64.b64encode(tmpfile.getvalue()).decode('utf-8')
-    html = '<img src=\'data:image/png;base64,{}\'>'.format(encoded)
+    img_src = 'data:image/png;base64,{}'.format(encoded)
+    # html = '<img src=\'data:image/png;base64,{}\'>'.format(encoded)
     # plt.show()
     plt.close()
 
-    return html
+    return img_src
+
 
 
 def run_and_plot(messages_dict):

@@ -30,9 +30,9 @@ textForm.addEventListener('submit', function(e){
             submitButton.innerHTML = "Generate Heatmap!";
             submitButton.removeAttribute('disabled');
             let JsonResult = JSON.parse(text);
-            let imgHTML = JsonResult['img'];
+            let imgSrc = JsonResult['img_src'];
             let imgDiv = 'heatmap_image';
-            updateImg(imgDiv, imgHTML);
+            updateImg(imgDiv, imgSrc);
         })
 })
 
@@ -73,9 +73,13 @@ function removeDiv(num) {
     div.remove();
 }
 
-function updateImg(divID, img) {
+function updateImg(divID, imgSrc) {
     let div = document.getElementById(divID);
-    div.innerHTML = img;
+    div.innerHTML = "";
+
+    let heatmapImage = document.createElement('img');
+    heatmapImage.src = imgSrc;
+    div.append(heatmapImage);
 }
 
 createTextField();
