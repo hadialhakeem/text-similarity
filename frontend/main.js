@@ -42,7 +42,6 @@ addTextButton.addEventListener('click', function(){
 })
 
 
-
 function createTextField(){
     textFieldNum += 1;
     console.log("added")
