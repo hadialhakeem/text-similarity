@@ -41,8 +41,6 @@ addTextButton.addEventListener('click', function(){
     createTextField();
 })
 
-
-
 function createTextField(){
     textFieldNum += 1;
     console.log("added")
@@ -82,5 +80,9 @@ function updateImg(divID, imgSrc) {
     div.append(heatmapImage);
 }
 
-createTextField();
-createTextField();
+function load() {
+    createTextField();
+    createTextField();
+}
+
+load()

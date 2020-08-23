@@ -39,7 +39,6 @@ def plot_similarity(labels, features, rotation):
     return img_src
 
 
-
 def run_and_plot(messages_dict):
     keys = list(messages_dict.keys())
     values = list(messages_dict.values())
